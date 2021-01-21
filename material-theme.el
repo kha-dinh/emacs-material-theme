@@ -49,9 +49,10 @@
        (256color  (eq (display-color-cells (selected-frame)) 256))
        (truecolor (eq (display-color-cells (selected-frame)) 16777216))
 
-       (background (if (or window-system truecolor) "#263238" "#262626")) ;; sidebar-container
+       (background (if (or window-system truecolor) "#212121" "#262626")) ;; sidebar-container
        (current-line (if (or window-system truecolor)  "#37474f" "#3a3a3a")) ;; tree-row
-       (far-background (if (or window-system truecolor)  "#1c1f26" "#121212")) ;; panel-control
+
+       (far-background (if (or window-system truecolor)  "#121212" "#121212")) ;; panel-control
        (diff-nonactive-bg "#2F3D41")
        (diff-current-A-bg "#40393D")
        (diff-fine-A-bg "#784948")
@@ -117,21 +118,21 @@
 
    ;; ace-jump-faces
    `(ace-jump-face-foreground ((,class (:foreground ,foreground
-                                        :background ,"#ef6c00"
-                                        :weight bold))))
+                                                    :background ,"#ef6c00"
+                                                    :weight bold))))
 
    `(ace-jump-face-background ((,class (:foreground ,inactive-gray
-                                        :weight normal))))
+                                                    :weight normal))))
 
    ;; avy-jump-mode
    `(avy-background-face ((,class (:foreground ,inactive-gray
-                                   :weight normal))))
+                                               :weight normal))))
    `(avy-lead-face-0 ((,class (:foreground ,foreground
-                               :background ,"#ef6c00"
-                                        :weight bold))))
+                                           :background ,"#ef6c00"
+                                           :weight bold))))
    `(avy-lead-face ((,class (:foreground ,foreground
-                             :background ,"#ef6c00"
-                             :weight bold))))
+                                         :background ,"#ef6c00"
+                                         :weight bold))))
 
    ;; Flycheck
    `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
@@ -191,7 +192,7 @@
 
    ;; Evil
    `(evil-search-highlight-persist-highlight-face ((,class (:foreground ,background
-                                                            :background ,green))))
+                                                                        :background ,green))))
    ;; iedit
    `(iedit-occurrence ((,class (:foreground ,background :background ,green))))
 
@@ -224,7 +225,7 @@
    `(linum-highlight-face ((,class (:background ,current-line :foreground ,foreground))))
    `(border ((,class (:background ,current-line))))
    `(vertical-border ((,class (:background ,selection
-                               :foreground, selection))))
+                                           :foreground, selection))))
    `(border-glyph ((,class (nil))))
    `(highlight ((,class (:inverse-video nil :background ,current-line))))
    `(hl-line ((,class (:inverse-video nil :background ,current-line))))
@@ -373,10 +374,10 @@
    `(magit-branch ((,class (:foreground ,green))))
    `(magit-diff-added ((,class (:inherit diff-added))))
    `(magit-diff-added-highlight ((,class (:inherit magit-diff-added
-                                          :background ,far-background))))
+                                                   :background ,far-background))))
    `(magit-diff-removed ((,class (:inherit diff-removed))))
    `(magit-diff-removed-highlight ((,class (:inherit magit-diff-removed
-                                            :background ,far-background))))
+                                                     :background ,far-background))))
    `(magit-header ((,class (:inherit nil :weight bold))))
    `(magit-item-highlight ((,class (:inherit highlight :background nil))))
    `(magit-log-author ((,class (:foreground ,aqua))))
@@ -388,21 +389,21 @@
    `(magit-diff-file-heading           ((t (:weight bold))))
    `(magit-diff-file-heading-highlight ((t (:background ,current-line  :weight bold))))
    `(magit-diff-file-heading-selection ((t (:background ,background
-                                            :foreground ,orange :weight bold))))
+                                                        :foreground ,orange :weight bold))))
    `(magit-diff-hunk-heading           ((t (:background ,header-color))))
    `(magit-diff-hunk-heading-highlight ((t (:background ,header-color))))
    `(magit-diff-hunk-heading-selection ((t (:background ,background
-                                            :foreground ,orange))))
+                                                        :foreground ,orange))))
    `(magit-diff-lines-heading          ((t (:background ,orange
-                                            :foreground ,background))))
+                                                        :foreground ,background))))
    `(magit-blame-heading          ((t (:background ,far-background
-                                       :foreground ,aqua))))
+                                                   :foreground ,aqua))))
    `(magit-blame-date             ((t (:background ,far-background
                                                    :foreground ,"#80cbc4"))))
    `(magit-blame-summary          ((t (:background ,far-background
-                                       :foreground ,green))))
+                                                   :foreground ,green))))
    `(magit-diff-context-highlight      ((t (:background ,far-background
-                                            :foreground "grey70"))))
+                                                        :foreground "grey70"))))
    `(magit-diffstat-added   ((t (:foreground ,green))))
    `(magit-diffstat-removed ((t (:foreground ,red))))
    `(magit-process-ok    ((t (:foreground ,green  :weight bold))))
@@ -513,14 +514,14 @@
                                    :box (:line-width 1 :color nil :style pressed-button)))))
 
    `(org-level-1 ((,class (:inherit outline-1
-                         :background ,header-color
-                         :weight bold
-                         :box (:style released-button)
-                         :height 1.3))))
+                                    :background ,header-color
+                                    :weight bold
+                                    :box (:style released-button)
+                                    :height 1.3))))
    `(org-level-2 ((,class (:inherit outline-2
-                                  :background ,"#35575b"
-                                  :box (:style released-button)
-                         :height 1.2))))
+                                    :background ,"#35575b"
+                                    :box (:style released-button)
+                                    :height 1.2))))
    `(org-level-3 ((,class (:inherit outline-3 :height 1.1))))
    `(org-level-4 ((,class (:inherit outline-4 :height 1.0))))
    `(org-level-5 ((,class (:inherit outline-5 ))))
@@ -539,11 +540,11 @@
    `(markdown-header-face-8 ((,class (:inherit font-lock-function-name-face :weight bold :height 1.1 ))))
    `(markdown-header-face-9 ((,class (:inherit font-lock-function-name-face :weight bold :height 1.1 ))))
    `(markdown-header-delimiter-face ((,class (:inherit font-lock-function-name-face :weight bold
-                                              :height 1.2))))
+                                                       :height 1.2))))
    `(markdown-url-face ((,class (:inherit link))))
    `(markdown-link-face ((,class (:foreground ,blue :underline t))))
 
-   ;`(hl-sexp-face ((,class (:background ,current-line))))
+                                        ;`(hl-sexp-face ((,class (:background ,current-line))))
    `(highlight-symbol-face ((,class (:background ,selection))))
    `(highlight-80+ ((,class (:background ,current-line))))
 
@@ -650,17 +651,26 @@
    ;; `(company-echo ((,class ())))
    ;; `(company-echo-common ((,class ())))
 
-   `(company-preview ((,class (:foreground ,comment :background ,inactive-gray))))
-   `(company-preview-common ((,class (:foreground ,comment :background ,inactive-gray)))) ; same background as highlight-line
+   `(company-preview ((,class (:foreground ,aqua :background ,far-background))))
+   `(company-preview-common ((,class (:foreground ,comment :background ,far-background)))) ; same background as highlight-line
    ;; `(company-preview-search ((,class ())))
-   `(company-scrollbar-bg ((,class (:background "#F0F0F0"))))
-   `(company-scrollbar-fg ((,class (:background "#C0C0C0"))))
-   `(company-template-field ((,class (:background ,inactive-gray))))
-   `(company-tooltip ((,class (:weight bold :foreground, far-background :background ,inactive-gray))))
+
+   ;; `(company-scrollbar-bg ((,class (:background "#F0F0F0"))))
+   ;; `(company-scrollbar-fg ((,class (:background "#C0C0C0"))))
+   `(company-template-field ((,class (:background ,far-background))))
+   (let ((bg (face-attribute 'default :background)))
+     `(company-tooltip ((,class (:inherit default :background ,(color-lighten-name bg 2)))))
+     `(company-scrollbar-bg ((,class (:background ,(color-lighten-name bg 10)))))
+     `(company-scrollbar-fg ((,class (:background ,(color-lighten-name bg 5)))))
+     ;; `(company-tooltip-selection ((,class (:background ,inactive-gray))))
+     ;; `(company-tooltip-common-selection ((,class (:weight normal :inherit company-tooltip-selection)))) ;
+     `(company-tooltip-common ((,class (:inherit font-lock-constant-face))))
+     )
+
+   ;; `(company-tooltip ((,class (:weight bold :foreground,inactive-gray  :background ,far-background))))
    `(company-tooltip-annotation ((,class (:weight normal :foreground ,comment :background ,inactive-gray))))
    `(company-tooltip-annotation-selection ((,class (:weight normal :inherit company-tooltip-selection))))
-   `(company-tooltip-common ((,class (:weight normal :inherit company-tooltip))))
-   `(company-tooltip-common-selection ((,class (:weight normal :inherit company-tooltip-selection))))
+   ;; `(company-tooltip-common ((,class (:weight normal :inherit company-tooltip))))
    ;; `(company-tooltip-mouse ((,class ())))
    ;; `(company-tooltip-search ((,class ())))
    `(company-tooltip-selection ((,class (:weight bold :foreground ,foreground :background ,current-line))))
