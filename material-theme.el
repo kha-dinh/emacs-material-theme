@@ -49,7 +49,7 @@
        (256color  (eq (display-color-cells (selected-frame)) 256))
        (truecolor (eq (display-color-cells (selected-frame)) 16777216))
 
-       (background (if (or window-system truecolor) "#282c34" "#262626")) ;; sidebar-container
+       (background (if (or window-system truecolor) "#282c34" "#282c34")) ;; sidebar-container
        (current-line (if (or window-system truecolor)  "#37474f" "#3a3a3a")) ;; tree-row
 
        (far-background (if (or window-system truecolor)  "#121212" "#121212")) ;; panel-control
@@ -75,7 +75,8 @@
        (green "#8bc34a") ;; complement tab-control-dirty-tab-close-button
        (aqua "#81d4fa") ;; lighter complement tab-control-dirty-tab-close-button
        (blue "#4dd0e1") ;; complement tab-control-dirty-tab-close-button
-       (purple "#b39ddb")) ;; complement tab-control-dirty-tab-close-button
+       (purple "#b39ddb") ;; complement tab-control-dirty-tab-close-button
+       (teal "#84ffff"))
 
   (custom-theme-set-faces
    'material
@@ -651,29 +652,39 @@
    ;; `(company-echo ((,class ())))
    ;; `(company-echo-common ((,class ())))
 
-   `(company-preview ((,class (:foreground ,aqua :background ,far-background))))
-   `(company-preview-common ((,class (:foreground ,comment :background ,far-background)))) ; same background as highlight-line
-   ;; `(company-preview-search ((,class ())))
 
+   ;; `(company-preview-search ((,class (:foreground ,aqua :inherit company-preview))))
+   ;; `(company-preview-common ((,class (:foreground ,comment :background ,far-background)))) ; same background as highlight-line
+   ;; `(company-preview-search ((,class ())))
    ;; `(company-scrollbar-bg ((,class (:background "#F0F0F0"))))
    ;; `(company-scrollbar-fg ((,class (:background "#C0C0C0"))))
+   ;; `(company-tooltip)
    `(company-template-field ((,class (:background ,far-background))))
-   (let ((bg (face-attribute 'default :background)))
-     `(company-tooltip ((,class (:inherit default :background ,(color-lighten-name bg 2)))))
-     `(company-scrollbar-bg ((,class (:background ,(color-lighten-name bg 10)))))
-     `(company-scrollbar-fg ((,class (:background ,(color-lighten-name bg 5)))))
-     ;; `(company-tooltip-selection ((,class (:background ,inactive-gray))))
-     ;; `(company-tooltip-common-selection ((,class (:weight normal :inherit company-tooltip-selection)))) ;
-     `(company-tooltip-common ((,class (:inherit font-lock-constant-face))))
-     )
+   ;; (let ((bg (face-attribute 'default :background)))
+   ;;   `(company-tooltip ((,class (:inherit default :background ,(color-lighten-name bg 2)))))
+   ;;   `(company-scrollbar-bg ((,class (:background ,(color-lighten-name bg 10)))))
+   ;;   `(company-scrollbar-fg ((,class (:background ,(color-lighten-name bg 5)))))
+   ;;   ;; `(company-tooltip-selection ((,class (:background ,inactive-gray))))
+   ;;   ;; `(company-tooltip-common-selection ((,class (:weight normal :inherit company-tooltip-selection)))) ;
+   ;;   ;; `(company-tooltip-annotation ((,class (:weight normal :foreground ,comment :background ,bg))))
+   ;;   )
 
-   ;; `(company-tooltip ((,class (:weight bold :foreground,inactive-gray  :background ,far-background))))
-   `(company-tooltip-annotation ((,class (:weight normal :foreground ,comment :background ,inactive-gray))))
+   `(company-tooltip ((,class (:inherit default))))
+   ;; `(company-tooltip-search ((,class (:foreground ,aqua :weight bold))))
+   ;; `(company-tooltip-common ((,class (:foreground ,foreground))))
+   `(company-tooltip-common ((,class (:foreground ,foreground))))
+   `(company-tooltip-common-selection ((,class (:foreground ,teal))))
+
+
+   `(company-preview-common ((,class (:inherit default :foreground ,teal :background ,current-line))))
+   `(company-tooltip-selection ((,class (:weight bold :foreground ,foreground :background ,current-line))))
+   `(company-tooltip-annotation ((,class (:foreground ,green :inherit company-tooltip-common))))
    `(company-tooltip-annotation-selection ((,class (:weight normal :inherit company-tooltip-selection))))
+
    ;; `(company-tooltip-common ((,class (:weight normal :inherit company-tooltip))))
    ;; `(company-tooltip-mouse ((,class ())))
    ;; `(company-tooltip-search ((,class ())))
-   `(company-tooltip-selection ((,class (:weight bold :foreground ,foreground :background ,current-line))))
+
 
    ;; Powerline
    `(powerline-active1 ((t (:foreground ,foreground :background ,selection))))
